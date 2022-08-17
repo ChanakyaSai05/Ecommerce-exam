@@ -29,14 +29,20 @@ function Cart() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const incrementBtn = (pro_id) => {
-    let base_product = products.filter((item) => item.id === pro_id);
-    let details = {
-      pro_id: pro_id,
-      base_price: base_product[0].list_price,
-    };
-    // console.log(base_product, details, pro_id);
-    dispatch(inc_quantity(details));
+  const incrementBtn = (pro) => {
+    // console.log(pro);
+    if (pro.quantity === parseInt(pro.stock)) {
+      alert("Out of stock");
+      return;
+    } else {
+      let base_product = products.filter((item) => item.id === pro.id);
+      let details = {
+        pro_id: pro.id,
+        base_price: base_product[0].list_price,
+      };
+      // console.log(base_product, details, pro_id);
+      dispatch(inc_quantity(details));
+    }
   };
   const decrementBtn = (pro, index) => {
     if (pro.quantity === 1) {
@@ -287,7 +293,7 @@ function Cart() {
                         textAlign: "center",
                         height: "1.8vw",
                       }}
-                      onClick={() => incrementBtn(product.id)}
+                      onClick={() => incrementBtn(product)}
                     >
                       +
                     </button>
