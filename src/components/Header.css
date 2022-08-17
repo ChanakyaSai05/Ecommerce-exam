@@ -1,0 +1,10 @@
+.header-bottom {
+  background-color: #017981;
+  padding: 8px;
+}
+.cart-number {
+  position: absolute;
+  z-index: 1;
+  margin-left: 95.3vw;
+  margin-top: -12px;
+}
