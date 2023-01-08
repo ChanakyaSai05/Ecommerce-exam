@@ -7,9 +7,6 @@ export const userSlice = createSlice({
     set_data: (state, action) => {
       state = [...state, action.payload];
       return state;
-      //or
-      // state.push(action.payload);
-      // return state;
     },
     remove_data: (state, action) => {
       let state1 = [...state];

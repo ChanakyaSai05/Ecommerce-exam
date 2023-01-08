@@ -30,7 +30,6 @@ function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const incrementBtn = (pro) => {
-    // console.log(pro);
     if (pro.quantity === parseInt(pro.stock)) {
       alert("Out of stock");
       return;
